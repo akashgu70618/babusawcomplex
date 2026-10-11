@@ -1,0 +1,295 @@
+/* ================= ROOT ================= */
+
+:root{
+
+    --primary:#2563eb;
+    --secondary:#ce1fc0;
+    --dark:#333;
+
+}
+
+
+/* ================= GLOBAL ================= */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    background:#f5f7fa;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+
+/* ================= NAVBAR ================= */
+
+
+.navbar{
+
+    background:#e607f1;
+
+    padding:12px 60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+
+}
+
+
+.logo img{
+
+    height:55px;
+
+}
+
+
+
+.menu ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:25px;
+
+}
+
+
+.menu ul li a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:600;
+
+}
+
+
+
+.menu ul li a:hover{
+
+    color:white;
+
+}
+
+
+
+.quote{
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* ================= WELCOME SECTION ================= */
+
+
+.welcome{
+
+    min-height:75vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.welcome-box{
+
+
+    background:white;
+
+    width:550px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+
+}
+
+
+
+.welcome-box img{
+
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.welcome-box h1{
+
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.welcome-box p{
+
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+
+
+/* ================= BUTTON ================= */
+
+
+.dashboard-btn{
+
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:13px 35px;
+
+    background:var(--primary);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+
+}
+
+
+
+.dashboard-btn:hover{
+
+    background:var(--secondary);
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer{
+
+    background:#222;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+.term{
+
+    color:#ce1fc0;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+.term:hover{
+
+    color:#2563eb;
+
+}
+
+
+.developer{
+
+    text-align:left;
+
+    margin-left:30px;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+.menu ul{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+.welcome-box{
+
+    width:90%;
+
+}
+
+
+}

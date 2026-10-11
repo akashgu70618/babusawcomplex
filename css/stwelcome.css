@@ -1,0 +1,202 @@
+/* ================= ROOT ================= */
+
+:root{
+    --primary-color:#2563eb;
+    --secondary-color:#ce1fc0;
+    --background:#f5f7fa;
+    --white:#ffffff;
+    --black:#333333;
+}
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--background);
+    color:var(--black);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background: #e607f1;
+    padding: 12px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img{
+    height: 55px;
+}
+
+.menu ul{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    list-style: none;
+}
+
+
+.menu ul li a{
+    text-decoration: none;
+    color: #333;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    
+}
+
+
+.menu ul li a:hover{
+    color: #2563eb;
+}
+
+.quote{
+    color: #2563eb;
+    font-size: 18px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* ================= LOGIN PAGE ================= */
+
+.login-page{
+
+    min-height:85vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px 20px;
+
+    background:linear-gradient(rgba(37,99,235,.08),rgba(206,31,192,.08));
+
+}
+.welcome{
+
+    min-height:80vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f5f7fa;
+
+}
+
+.welcome-box{
+
+    width:500px;
+
+    background:#fff;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.welcome-box img{
+
+    width:120px;
+
+    margin-bottom:20px;
+
+}
+
+.welcome-box h1{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-box p{
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.dashboard-btn{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.dashboard-btn:hover{
+
+    background:#ce1fc0;
+
+}
+footer{
+
+    background:#222;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.term{
+
+    color:#ce1fc0;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.term:hover{
+
+    color:#2563eb;
+
+}
+
+.developer{
+
+    margin-top:15px;
+
+}

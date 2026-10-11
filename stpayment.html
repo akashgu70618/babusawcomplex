@@ -1,0 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment History | BABU SAW COMPLEX</title>
+
+    <link rel="stylesheet" href="css/stpayment.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+            <h2>BABU SAW</h2>
+        </div>
+
+        <ul>
+            <li><a href="stdashboard.html">🏠 Dashboard</a></li>
+            <li><a href="stprofile.html">👤 My Profile</a></li>
+            <li><a href="stpayment.html">💳 Payment History</a></li>
+            <li><a href="notice.html">📢 Notices</a></li>
+            <li><a href="stchangepass.html">🔑 Change Password</a></li>
+            <li><a href="#" id="logoutLink">🚪 Logout</a></li>
+        </ul>
+
+        <br><br>
+
+        <div class="developer">
+            <p>Developed By :</p>
+            <h4>AKASH KUMAR GUPTA</h4>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="topbar">
+            <h1>💳 Payment History</h1>
+            <p>Student: <span id="studentName">-</span></p>
+            <p>Student ID: <span id="studentId">-</span></p>
+        </div><br><br>
+
+        <!-- PAYMENT TABLE -->
+        <div class="payment-box">
+
+            <h2>Payment Records</h2>
+
+            <div class="table-container">
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Amount</th>
+                            <th>Payment Date</th>
+                            <th>Mode</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="paymentTableBody">
+                    </tbody>
+
+                </table>
+            </div>
+
+            <p id="noPayments" hidden>No payment records available.</p>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- STUDENT PAYMENT DATA -->
+<script>
+const students = {
+
+    "9570116912": {
+        name: "Akash Kumar Gupta",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 2500,
+                date: "06 sept 2026",
+                mode: "CASH",
+                status: "Paid"
+            }
+        ]
+    },
+
+    "8084783177": {
+        name: "Rocky Kumar",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 1500,
+                date: "05 sept 2026",
+                mode: "CASH",
+                status: "Paid"
+            }
+        ]
+    },
+
+    "8757666777": {
+        name: "Aunish Kumar",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 2500,
+                date: "-",
+                mode: "-",
+                status: "Due"
+            }
+        ]
+    },
+
+    "9263893599": {
+        name: "Prince Kumar",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 2500,
+                date: "-",
+                mode: "-",
+                status: "Due"
+            }
+        ]
+    },
+
+    "7033568747": {
+        name: "Punit Kumar",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 2500,
+                date: "06 sept 2026",
+                mode: "CASH",
+                status: "Paid"
+            }
+        ]
+    },
+
+    "9006939974": {
+        name: "Rohit Kumar",
+        payments: [
+            {
+                month: "September 2026",
+                amount: 2500,
+                date: "5 sept 2026",
+                mode: "CASH",
+                status: "Paid"
+            }
+        ]
+    }
+
+};
+
+
+// Get logged-in student
+const studentId = sessionStorage.getItem("studentId");
+const student = students[studentId];
+
+if (!student) {
+
+    window.location.replace("stlogin.html");
+
+} else {
+
+    document.getElementById("studentName").textContent =
+        student.name;
+
+    document.getElementById("studentId").textContent =
+        studentId;
+
+    const tableBody = document.getElementById("paymentTableBody");
+
+    let totalPaid = 0;
+    let pendingAmount = 0;
+
+    student.payments.forEach(function(payment) {
+
+        const row = document.createElement("tr");
+
+        const monthCell = document.createElement("td");
+        monthCell.textContent = payment.month;
+
+        const amountCell = document.createElement("td");
+        amountCell.textContent = "₹" + payment.amount;
+
+        const dateCell = document.createElement("td");
+        dateCell.textContent = payment.date;
+
+        const modeCell = document.createElement("td");
+        modeCell.textContent = payment.mode;
+
+        const statusCell = document.createElement("td");
+        statusCell.textContent = payment.status;
+
+        if (payment.status === "Paid") {
+            statusCell.className = "paid";
+            totalPaid += payment.amount;
+        } else {
+            statusCell.className = "pending";
+            pendingAmount += payment.amount;
+        }
+
+        row.appendChild(monthCell);
+        row.appendChild(amountCell);
+        row.appendChild(dateCell);
+        row.appendChild(modeCell);
+        row.appendChild(statusCell);
+
+        tableBody.appendChild(row);
+    });
+
+    document.getElementById("totalPaid").textContent =
+        "₹" + totalPaid;
+
+    document.getElementById("pendingAmount").textContent =
+        "₹" + pendingAmount;
+
+    document.getElementById("totalRecords").textContent =
+        student.payments.length;
+
+    if (student.payments.length === 0) {
+        document.getElementById("noPayments").hidden = false;
+    }
+}
+
+
+// Logout
+document.getElementById("logoutLink").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    sessionStorage.removeItem("studentId");
+
+    window.location.replace("stlogin.html");
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,303 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | BABU SAW COMPLEX</title>
+
+    <link rel="stylesheet" href="css/stprofile.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+            <h2>BABU SAW</h2>
+        </div>
+
+        <ul>
+            <li><a href="stdashboard.html">🏠 Dashboard</a></li>
+            <li><a href="stprofile.html">👤 My Profile</a></li>
+            <li><a href="stpayment.html">💳 Payment History</a></li>
+            <li><a href="notice.html">📢 Notices</a></li>
+            <li><a href="stchangepass.html">🔑 Change Password</a></li>
+            <li><a href="#" id="logoutLink">🚪 Logout</a></li>
+        </ul>
+
+        <br><br>
+
+        <div class="developer">
+            <p>Developed By :</p>
+            <h4>AKASH KUMAR GUPTA</h4>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- PROFILE CARD -->
+        <div class="profile-card">
+
+            <img id="studentImage"
+                 src="images/student.png"
+                 alt="Student Photo">
+
+            <h1 id="studentName">Student Name</h1>
+
+            <p>Student ID : <span id="studentId">-</span></p>
+
+        </div>
+
+
+        <!-- PERSONAL INFORMATION -->
+        <div class="details">
+
+            <h2>Personal Information</h2>
+
+            <table>
+                <tr>
+                    <td><b>Full Name</b></td>
+                    <td id="fullName">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Father's Name</b></td>
+                    <td id="fatherName">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Father's Mobile Number</b></td>
+                    <td id="mobile">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Email</b></td>
+                    <td id="email">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>College</b></td>
+                    <td>Government Engineering College, Aurangabad(Bihar)</td>
+                </tr>
+
+                <tr>
+                    <td><b>Branch</b></td>
+                    <td id="branch">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Course</b></td>
+                    <td id="course">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Address</b></td>
+                    <td id="address">-</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <!-- ROOM INFORMATION -->
+        <div class="details">
+
+            <h2>Room Information</h2>
+
+            <table>
+                <tr>
+                    <td><b>Room Number</b></td>
+                    <td id="roomNumber">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Bed Number</b></td>
+                    <td id="bedNumber">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Joining Date</b></td>
+                    <td id="joiningDate">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Monthly Rent</b></td>
+                    <td id="monthlyRent">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Status</b></td>
+                    <td id="accountStatus">-</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- STUDENT DATA -->
+<script>
+const students = {
+    "9570116912": {
+        name: "Akash Kumar Gupta",
+        image: "images/adpic1.png",
+        fatherName: "Manish Kumar Gupta",
+        mobile: "+91-9708778785",
+        email: "akashgu70618@gmail.com",
+        branch: "CSE(AI&ML)",
+        course: "B. Tech",
+        address: "Vill.-Bhagwatpur, P.O.-Jalpura, P.S.-Chandi, Dist.-Bhpojpur, ARA (Bihar) 802161",
+        room: "11",
+        bed: "01",
+        joiningDate: "12 Oct 2025",
+        monthlyRent: 2500,
+        status: "Active"
+    },
+
+    "8084783177": {
+        name: "Rocky Kumar",
+        image: "images/rockypic.jpeg",
+        fatherName: "Ajay Lal",
+        mobile: "+91-8084783177",
+        email: "rocky@example.com",
+        course: "B. Tech",
+        address: "Bihar, India",
+        room: "12",
+        bed: "01",
+        joiningDate: "10 July 2026",
+        monthlyRent: 1500,
+        status: "Active"
+    },
+
+    "8757666777": {
+        name: "Aunish Kumar",
+        image: "images/aunish.png",
+        fatherName: "Father Name Not Added",
+        mobile: "+91-8757666777",
+        email: "aunish@example.com",
+        college: "XYZ College",
+        course: "BCA",
+        address: "Bihar, India",
+        room: "13",
+        bed: "01",
+        joiningDate: "10 July 2026",
+        monthlyRent: 2500,
+        status: "Active"
+    },
+
+    "9263893599": {
+        name: "Prince Kumar",
+        image: "images/prince.png",
+        fatherName: "Father Name Not Added",
+        mobile: "+91-9263893599",
+        email: "prince@example.com",
+        college: "XYZ College",
+        course: "BCA",
+        address: "Bihar, India",
+        room: "14",
+        bed: "01",
+        joiningDate: "10 July 2026",
+        monthlyRent: 2500,
+        status: "Active"
+    },
+
+    "7033568747": {
+        name: "Punit Kumar",
+        image: "images/punit.png",
+        fatherName: "Father Name Not Added",
+        mobile: "+91-7033568747",
+        email: "punit@example.com",
+        college: "XYZ College",
+        course: "BCA",
+        address: "Bihar, India",
+        room: "15",
+        bed: "01",
+        joiningDate: "10 July 2026",
+        monthlyRent: 2500,
+        status: "Active"
+    },
+
+    "9006939974": {
+        name: "Rohit Kumar",
+        image: "images/rohit.png",
+        fatherName: "Father Name Not Added",
+        mobile: "+91-9006939974",
+        email: "rohit@example.com",
+        college: "XYZ College",
+        course: "BCA",
+        address: "Bihar, India",
+        room: "16",
+        bed: "01",
+        joiningDate: "10 July 2026",
+        monthlyRent: 2500,
+        status: "Active"
+    }
+};
+
+
+// Get logged-in student ID
+const studentId = sessionStorage.getItem("studentId");
+const student = students[studentId];
+
+if (!student) {
+
+    // If not logged in, go to login page
+    window.location.replace("stlogin.html");
+
+} else {
+
+    // Profile photo
+    document.getElementById("studentImage").src = student.image;
+    document.getElementById("studentImage").alt = student.name;
+
+    // Personal information
+    document.getElementById("studentName").textContent = student.name;
+    document.getElementById("studentId").textContent = studentId;
+    document.getElementById("fullName").textContent = student.name;
+    document.getElementById("fatherName").textContent = student.fatherName;
+    document.getElementById("mobile").textContent = student.mobile;
+    document.getElementById("email").textContent = student.email;
+    document.getElementById("branch").textContent = student.branch;
+    document.getElementById("course").textContent = student.course;
+    document.getElementById("address").textContent = student.address;
+
+    // Room information
+    document.getElementById("roomNumber").textContent = student.room;
+    document.getElementById("bedNumber").textContent = student.bed;
+    document.getElementById("joiningDate").textContent = student.joiningDate;
+    document.getElementById("monthlyRent").textContent =
+        "₹" + student.monthlyRent;
+
+    const statusElement = document.getElementById("accountStatus");
+    statusElement.textContent = student.status;
+
+    if (student.status === "Active") {
+        statusElement.style.color = "green";
+    } else {
+        statusElement.style.color = "red";
+    }
+}
+
+
+// Logout
+document.getElementById("logoutLink").addEventListener("click", function(event) {
+    event.preventDefault();
+    sessionStorage.removeItem("studentId");
+    window.location.replace("stlogin.html");
+});
+</script>
+
+</body>
+</html>
+```

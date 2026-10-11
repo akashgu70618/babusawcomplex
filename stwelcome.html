@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome | BABU SAW COMPLEX</title>
+
+    <link rel="stylesheet" href="css/stwelcome.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="notice.html">Notices</a></li>
+                <li><a href="stlogin.html">Student Login</a></li>
+                <li><a href="adlogin.html">Admin Login</a></li>
+            </ul>
+        </div>
+
+        <div class="quote">
+            <i>Comfortable Stay, Hassle-Free Management</i>
+        </div>
+
+    </nav>
+</header>
+
+<!-- WELCOME SECTION -->
+
+<section class="welcome">
+
+    <div class="welcome-box">
+
+        <img
+            id="studentImage"
+            src="images/adpic1.png"
+            alt="Student Photo"
+        >
+
+        <h1 id="welcomeName">Welcome, Student 👋</h1>
+
+        <p>
+            Welcome to the <b>BABU SAW COMPLEX Student Portal.</b>
+            <br><br>
+            Your login was successful.
+            Click the button below to access your dashboard.
+        </p>
+
+        <a href="stdashboard.html"
+           id="dashboardButton"
+           class="dashboard-btn">
+            Go to Dashboard →
+        </a>
+
+        <p id="errorMessage" role="alert" style="color:red;"></p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <a class="term" href="terms.html">
+        Terms &amp; Conditions
+    </a>
+
+    <br><br>
+
+    <p>
+        © 2026 BABU SAW COMPLEX |
+        Student Rent Management System
+    </p>
+
+    <br>
+
+    <p class="developer">
+        Developed By :
+        <b>AKASH KUMAR GUPTA</b>
+    </p>
+
+</footer>
+
+<script>
+/*
+  Demo student information.
+  Image paths should point to files in your images folder.
+*/
+
+const students = {
+    "9570116912": {
+        name: "Akash Kumar Gupta",
+        image: "images/adpic1.png",
+        dashboard: "stdashboard.html"
+    },
+
+    "8084783177": {
+        name: "Rocky Kumar",
+        image: "images/rockypic.jpeg",
+        dashboard: "stdashboard.html"
+    },
+
+    "8757666777": {
+        name: "Aunish Kumar",
+        image: "images/aunishpic.jpeg",
+        dashboard: "stdashboard.html"
+    },
+
+    "9263893599": {
+        name: "Prince Kumar",
+        image: "images/princepic.jpeg",
+        dashboard: "stdashboard.html"
+    },
+
+    "7033568747": {
+        name: "Punit Kumar",
+        image: "images/punitpic.jpeg",
+        dashboard: "stdashboard.html"
+    },
+
+    "9006939974": {
+        name: "Rohit Kumar",
+        image: "images/rohitpic.jpeg",
+        dashboard: "stdashboard.html"
+    }
+};
+
+const studentId = sessionStorage.getItem("studentId");
+
+const welcomeName = document.getElementById("welcomeName");
+const studentImage = document.getElementById("studentImage");
+const dashboardButton = document.getElementById("dashboardButton");
+const errorMessage = document.getElementById("errorMessage");
+
+if (
+    studentId &&
+    Object.prototype.hasOwnProperty.call(students, studentId)
+) {
+    const student = students[studentId];
+
+    welcomeName.textContent = "Welcome, " + student.name + " 👋";
+    studentImage.src = student.image;
+    studentImage.alt = student.name;
+    dashboardButton.href = student.dashboard;
+
+} else {
+    // Login details are missing: return to login
+    errorMessage.textContent =
+        "Please log in to access your welcome page.";
+
+    dashboardButton.style.display = "none";
+}
+
+</script>
+
+</body>
+</html>

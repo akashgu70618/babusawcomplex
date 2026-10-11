@@ -1,0 +1,245 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | BABU SAW COMPLEX</title>
+
+    <link rel="stylesheet" href="css/stdashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="BABU SAW Logo">
+            <h2>BABU SAW</h2>
+        </div>
+
+        <ul>
+            <li><a href="stdashboard.html">🏠 Dashboard</a></li>
+            <li><a href="stprofile.html">👤 My Profile</a></li>
+            <li><a href="stpayment.html">💳 Payment History</a></li>
+            <li><a href="notice.html">📢 Notices</a></li>
+            <li><a href="stchangepass.html">🔑 Change Password</a></li>
+            <li><a href="#" id="logoutLink">🚪 Logout</a></li>
+        </ul>
+
+        <br>
+
+        <div class="developer">
+            <p>Developed By :</p>
+            <h4>AKASH KUMAR GUPTA</h4>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <div class="topbar">
+            <h1>👋 Welcome, <span id="studentName">Student</span></h1>
+            <p>Student Dashboard</p>
+        </div>
+
+
+        <!-- RENT CARDS -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>💰 Monthly Rent</h3>
+                <h2 id="monthlyRent">₹0</h2>
+            </div>
+
+            <div class="card">
+                <h3>📅 Due Date</h3>
+                <h2 id="dueDate">5th of Month</h2>
+            </div>
+
+            <div class="card">
+                <h3>✔ Rent Status</h3>
+                <h2 id="rentStatus">-</h2>
+            </div>
+
+        </div>
+
+
+        <!-- STUDENT INFORMATION -->
+        <div class="info-box">
+
+            <h2>Student Information</h2>
+
+            <table>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td id="infoName">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Student ID</b></td>
+                    <td id="infoId">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Room No.</b></td>
+                    <td id="infoRoom">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Mobile</b></td>
+                    <td id="infoMobile">-</td>
+                </tr>
+
+                <tr>
+                    <td><b>Email</b></td>
+                    <td id="infoEmail">-</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <!-- RECENT NOTICES -->
+        <div class="notice-box">
+
+            <h2>Recent Notices</h2>
+
+            <ul>
+                <li>📢 Submit rent before the 5th of every month.</li>
+                <li>📶 WiFi maintenance on Sunday (10 AM - 12 PM).</li>
+                <li>💧 Water supply timing ke liye lodge notices check karein.</li>
+            </ul>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- STUDENT DATA AND DASHBOARD SCRIPT -->
+<script>
+const students = {
+    "9570116912": {
+        name: "Akash Kumar Gupta",
+        room: "11",
+        mobile: "+91-9570116912",
+        email: "akashgu70618@gmail.com",
+        monthlyRent: 2500,
+        dueDate: "5th of Month",
+        rentStatus: "Paid"
+    },
+
+    "8084783177": {
+        name: "Rocky Kumar",
+        room: "15",
+        mobile: "+91-8084783177",
+        email: "rockyemail.com",
+        monthlyRent: 1500,
+        dueDate: "5th of Month",
+        rentStatus: "Paid"
+    },
+
+    "8757666777": {
+        name: "Aunish Kumar",
+        room: "03",
+        mobile: "+91-8757666777",
+        email: "aunish@example.com",
+        monthlyRent: 2500,
+        dueDate: "5th of Month",
+        rentStatus: "Pending"
+    },
+
+    "9263893599": {
+        name: "Prince Kumar",
+        room: "03",
+        mobile: "+91-9263893599",
+        email: "prince@example.com",
+        monthlyRent: 2500,
+        dueDate: "5th of Month",
+        rentStatus: "Pending"
+    },
+
+    "7033568747": {
+        name: "Punit Kumar",
+        room: "11",
+        mobile: "+91-7033568747",
+        email: "punit@example.com",
+        monthlyRent: 2500,
+        dueDate: "5th of Month",
+        rentStatus: "Paid"
+    },
+
+    "9006939974": {
+        name: "Rohit Kumar",
+        room: "13",
+        mobile: "+91-9006939974",
+        email: "rohit@example.com",
+        monthlyRent: 2500,
+        dueDate: "5th of Month",
+        rentStatus: "Paid"
+    }
+};
+
+
+// Check logged-in student
+const studentId = sessionStorage.getItem("studentId");
+const student = students[studentId];
+
+if (!student) {
+    // Login session nahi hai to login page par bhejo
+    window.location.replace("stlogin.html");
+} else {
+
+    // Welcome name
+    document.getElementById("studentName").textContent =
+        student.name;
+
+    // Student information
+    document.getElementById("infoName").textContent =
+        student.name;
+
+    document.getElementById("infoId").textContent =
+        studentId;
+
+    document.getElementById("infoRoom").textContent =
+        student.room;
+
+    document.getElementById("infoMobile").textContent =
+        student.mobile;
+
+    document.getElementById("infoEmail").textContent =
+        student.email;
+
+    // Rent details
+    document.getElementById("monthlyRent").textContent =
+        "₹" + student.monthlyRent;
+
+    document.getElementById("dueDate").textContent =
+        student.dueDate;
+
+    document.getElementById("rentStatus").textContent =
+        student.rentStatus;
+}
+
+
+// Logout
+document.getElementById("logoutLink").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    sessionStorage.removeItem("studentId");
+
+    window.location.replace("stlogin.html");
+});
+</script>
+
+</body>
+</html>
+```
